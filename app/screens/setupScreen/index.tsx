@@ -1,6 +1,6 @@
 /**
- * @description 图谱
- * @author pan
+ * @description 设置
+ * @author Pan
  * @since 25/01/22
  */
 
@@ -9,11 +9,11 @@ import React from 'react';
 import {View} from 'react-native';
 import {Text} from '@react-navigation/elements';
 
-export default function ProfileScreen (prop: { navigation: { navigate: (arg0: string) => void; }; }) {
+export default function SetupScreen (prop: { navigation: { navigate: (arg0: string) => void; }; }) {
   return (
     <View style={s.container}>
       <Text>
-        Profile Screen
+        Setup Screen
       </Text>
     </View>
   );

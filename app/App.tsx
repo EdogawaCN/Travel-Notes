@@ -1,64 +1,39 @@
 /**
  * @description 主程序入口文件
- * @author pan
+ * @author Pan
  * @since 25/01/21
  */
 
-
 // 手势处理
 import 'react-native-gesture-handler';
-
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {
-  View,
-  Text,
-  Button,
-  StyleSheet,
-} from 'react-native';
+// 页面视图
+import HomeScreen from './screens/homeScreen';
+import AtlasScreen from './screens/atlasScreen';
+import AddScreen from './screens/addScreen';
+import TimelineScreen from './screens/timelineScreen';
+import SetupScreen from './screens/setupScreen';
 
-function HomeScreen (prop: { navigation: { navigate: (arg0: string) => void; }; }) {
-  return (
-    <View style={style.container}>
-      <Text>
-        Home Screen
-      </Text>
-      <Button title="跳转到详情页" onPress={() => prop.navigation.navigate('Details')} />
-    </View>
-  );
-}
-function ProfileScreen (prop: { navigation: { navigate: (arg0: string) => void; }; }) {
-  return (
-    <View style={style.container}>
-      <Text>
-        Profile Screen
-      </Text>
-      <Button title="返回首页" onPress={() => prop.navigation.navigate('Home')} />
-    </View>
-  );
-}
+
 const Tab = createBottomTabNavigator();
 
 function App(): React.JSX.Element {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{ headerShown: false }}
+      >
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen name="Atlas" component={AtlasScreen} />
+        <Tab.Screen name="Add" component={AddScreen} />
+        <Tab.Screen name="Timeline" component={TimelineScreen} />
+        <Tab.Screen name="Setup" component={SetupScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
-
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default App;
